@@ -1,0 +1,39 @@
+# Main data index file
+datafile : 'DESY3_indexcat.h5'
+
+# Reuse cached masking and selections - speeds up repeated calculations, but risky if things get out of sync - not supported
+load_cache : False
+
+# Where to put the cache dir
+output : '.'
+
+# The path in the h5 file for the catalog
+source_group : 'catalog/metacal'
+# The list of tables (only one for e.g. gold, but five for metacal below)
+source_table : ['unsheared', 'sheared_1p', 'sheared_1m', 'sheared_2p', 'sheared_2m']
+# The selection index path.
+source_path  : 'index/select'
+
+gold_group : 'catalog'
+gold_table : ['gold']
+gold_path  : 'index/select'
+
+dnf_group : 'catalog/dnf'
+dnf_table : ['unsheared']
+dnf_path  : None
+
+pz_group : 'catalog/sompz'
+pz_table : ['unsheared', 'sheared_1p', 'sheared_1m', 'sheared_2p', 'sheared_2m']
+pz_path  : 'index/select'
+
+rm_group : 'catalog/redmagic'
+rm_table : ['combined_sample_fid']
+rm_path  : 'index/redmagic/combined_sample_fid/select'
+
+ml_group : 'catalog'
+ml_table : ['maglim']
+ml_path  : 'index/maglim/select'
+
+ml_ran_group : 'randoms'
+ml_ran_table : ['maglim']
+ml_ran_path  : 'index/maglim/random_select'
